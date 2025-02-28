@@ -15,9 +15,10 @@ html {
   align-items: center;
   inline-size: 1200px;
   block-size: 100%;
-  margin: auto;
+  margin-block: auto;
+  margin-inline: auto;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed","Trebuchet MS", sans-serif;
   font-size: 18px;
   background-color: #1b1919;
 }
@@ -33,8 +34,10 @@ ol,
 li,
 blockquote,
 fieldset {
-  margin: 0;
-  padding: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
 }
 
 ul,
@@ -43,7 +46,8 @@ ol {
 }
 
 fieldset {
-  border: none;
+  border-block: none;
+  border-inline: none;
 }
 
 /* Стили для визуального скрытия элемента */
@@ -59,7 +63,7 @@ fieldset {
 
 /* Кастомный скроллбар */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
+  inline-size: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -76,22 +80,20 @@ fieldset {
   grid-template-columns: 1fr 1fr;
   column-gap: 30px;
   align-items: end;
-  max-width: 1140px;
-  max-height: 534px;
 }
 
 /* Стили для контейнера с видео */
 .result__video-container {
   position: relative;
-  width: 711px;
-  height: 386px;
-  margin-bottom: 16px;
+  inline-size: 711px;
+  block-size: 386px;
+  margin-block-end: 16px;
 }
 
 /* Стили для видео */
 .result__video {
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   object-fit: cover;
 }
 
@@ -106,7 +108,7 @@ fieldset {
 /* Общие стили для форм */
 .search-form__label {
   display: flex;
-  width: fit-content;
+  inline-size: fit-content;
   gap: 5px;
   align-items: center;
   cursor: pointer;
@@ -114,30 +116,31 @@ fieldset {
 
 /* Общие стили для заголовков полей ввода в форме поиска видео*/
 .search-form__fieldset-title {
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: "Fira Sans Condensed","Trebuchet MS", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 21.6px;
-  padding-bottom: 5px;
+  padding-block-end: 5px;
 }
 
 /* Стили для поля выбора города */
 .search-form__textfield {
-  width: 225px;
-  height: 27px;
-  border: none;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  inline-size: 225px;
+  block-size: 27px;
+  border-block: none;
+  border-inline: none;
+  font-family: "Fira Sans Condensed","Trebuchet MS", sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 21.6px;
-  border-top: 1px solid rgba(255, 255, 255, 1);
-  border-bottom: 1px solid rgba(255, 255, 255, 1);
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
+  color: rgba(255, 255, 255, 1);
+  border-block-start: 1px solid currentColor;
+  border-block-end: 1px solid currentColor;
+  border-inline-start: 1px solid transparent;
+  border-inline-end: 1px solid transparent;
   background-color: transparent;
   appearance: none;
-  color: rgba(255, 255, 255, 1);
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 /* Стили для подсказки в поле выбора города */
@@ -147,8 +150,8 @@ fieldset {
 
 /* Стили для активного состояния поля выбора города */
 .search-form__textfield:active {
-  border-right-color: rgba(255, 255, 255, 1);
-  border-left-color: rgba(255, 255, 255, 1);
+  border-inline-end-color: currentColor;
+  border-inline-start-color: currentColor;
 }
 
 /* Стили для сброса фокуса на поле выбора города */
@@ -172,16 +175,17 @@ fieldset {
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   content: '';
   display: block;
-  width: 17px;
-  height: 17px;
+  inline-size: 17px;
+  block-size: 17px;
   background-color: white;
 }
 
 /* Стили для кастомной обводки флажка в чекбоксе выбора времени суток */
 .search-form__pseudo-checkbox {
-  padding: 1px;
-  width: 19px;
-  height: 19px;
+  padding-block: 1px;
+  padding-inline: 1px;
+  inline-size: 19px;
+  block-size: 19px;
   outline: 1px solid rgba(255, 255, 255, 1)
 }
 
@@ -192,14 +196,15 @@ fieldset {
 
 /* Общие стили кнопок */
 .button {
-  font-family: Fira Sans Condensed;
+  font-family: "Fira Sans Condensed","Trebuchet MS", sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 21.6px;
   text-align: center;
   color: rgba(255, 255, 255, 1);
   background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 1);
+  border-block: 1px solid currentColor;
+  border-inline: 1px solid currentColor;
   cursor: pointer;
 }
 
@@ -220,7 +225,7 @@ fieldset {
 
 /* Состояние фокуса для кнопок */
 .button:focus-visible {
-  outline: 1px solid rgba(255, 255, 255, 1);
+  outline: 1px solid currentColor;
   outline-offset: 2px;
 }
 
@@ -228,31 +233,29 @@ fieldset {
 /* Индивидуальные стили для кнопки "Найти" */
 .search-form__submit-button {
   align-self: flex-end;
-  width: 194px;
-  height: 34px;
+  inline-size: 194px;
+  block-size: 34px;
 }
 
 /* Индивидуальные стили для кнопки "Показать ещё" */
 .more-button {
-  width: 100%;
-  height: 34px;
-  margin-top: 30px;
+  inline-size: 100%;
+  block-size: 34px;
+  margin-block-start: 30px;
 }
 
-/* Стили для секции с списком видео */
 .content__details {
-  min-width: 399px;
-  min-height: 534px;
+  block-size: 534px;
 }
 
-/* Стили для заголовока секции с видео и страницы в общем */
+/* Стили для заголовока секции с списком видео и страницы в общем */
 .title {
   font-family: Oswald;
   font-weight: 700;
   font-size: 75px;
   line-height: 70.5px;
   text-transform: uppercase;
-  padding-bottom: 26px;
+  padding-block-end: 26px;
 }
 
 /* Стили для букв 'ПО-' в заголовке страницы */
@@ -263,9 +266,9 @@ fieldset {
 /* Контейнер для списка с видео */
 .content__list-container {
   position: relative;
-  max-height: 298px;
-  max-width: 399px;
-  overflow-y: scroll;
+  max-block-size: 298px;
+  max-inline-size: 399px;
+  overflow-y: auto;
 }
 
 /* Стили для списка видео */
@@ -277,35 +280,40 @@ fieldset {
 
 /* Стили для Элемента списка видео */
 .content__list-item {
-  border: none;
-  padding-left: 3px;
-  padding-right: 3px;
-}
-
-/* Активное состояние элемента списка видео */
-.content__list-item:active {
-  background-color: rgba(84, 80, 80, 1);
-}
-
-/* Элемент списка видео в состоянии наведённой мыши */
-.content__list-item:hover {
-  text-decoration: underline;
-}
-
-/* Сброс фокуса для элемента списка видео */
-.content__list-item:focus {
-  border: none;
-}
-
-/* Состояние фокуса для элемента списка видео */
-.content__list-item:focus-visible {
-  border: 1px solid rgba(255, 255, 255, 1);
+  border-block: none;
+  border-inline: none;
+  padding-inline-start: 3px;
+  padding-inline-end: 3px;
+  padding-block-start: 3px;
 }
 
 /* Стили для ссылки поверх картчоки видео */
 .content__card-link {
+  display: block;
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
+}
+
+/* Активное состояние элемента списка видео */
+.content__card-link_current:active {
+  background-color: rgba(84, 80, 80, 1);
+}
+
+/* Элемент списка видео в состоянии наведённой мыши */
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+/* Сброс фокуса для элемента списка видео */
+.content__card-link:focus {
+  border-block: none;
+  border-inline: none;
+}
+
+/* Состояние фокуса для элемента списка видео */
+.content__card-link:focus-visible {
+  border-block: 1px solid rgba(255, 255, 255, 1);
+  border-inline: 1px solid rgba(255, 255, 255, 1);
 }
 
 /* Карточка с видео */
@@ -316,8 +324,8 @@ fieldset {
 
 /* Стили для картинки в карточке видео*/
 .content__video-card-thumbnail {
-  width: 194px;
-  height: 103px;
+  inline-size: 194px;
+  block-size: 103px;
   object-fit: cover;
   object-position: center;
 }
@@ -339,5 +347,14 @@ fieldset {
   text-transform: uppercase;
   text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Обычный текст в карточке видео */
+.content__video-card-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
   overflow: hidden;
 }
