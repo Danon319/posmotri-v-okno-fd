@@ -250,7 +250,7 @@ fieldset {
 
 /* Стили для заголовока секции с списком видео и страницы в общем */
 .title {
-  font-family: Oswald;
+  font-family: "Oswald","Trebuchet MS", sans-serif;
   font-weight: 700;
   font-size: 75px;
   line-height: 70.5px;
@@ -295,7 +295,12 @@ fieldset {
 }
 
 /* Активное состояние элемента списка видео */
-.content__card-link_current:active {
+.content__card-link:active {
+  background-color: #545050;
+}
+
+/* Выбранный элемент списка видео */
+.content__card-link_current {
   background-color: #545050;
 }
 
@@ -340,7 +345,7 @@ fieldset {
 
 /* Заголовок карточки видео */
 .content__video-card-title {
-  font-family: Oswald;
+  font-family: "Oswald","Trebuchet MS", sans-serif;
   font-weight: 700;
   font-size: 30px;
   line-height: 30px;
