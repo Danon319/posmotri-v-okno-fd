@@ -78,6 +78,7 @@ fieldset {
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  inline-size: 1140px;
   column-gap: 30px;
   align-items: end;
 }
@@ -244,10 +245,6 @@ fieldset {
   margin-block-start: 30px;
 }
 
-.content__details {
-  block-size: 534px;
-}
-
 /* Стили для заголовока секции с списком видео и страницы в общем */
 .title {
   font-family: "Oswald","Trebuchet MS", sans-serif;
@@ -266,7 +263,7 @@ fieldset {
 /* Контейнер для списка с видео */
 .content__list-container {
   position: relative;
-  max-block-size: 298px;
+  block-size: 298px;
   max-inline-size: 399px;
   overflow-y: auto;
 }
